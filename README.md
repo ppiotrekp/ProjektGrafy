@@ -1,5 +1,6 @@
-# ProjektGrafy
- część analityczna i analiza algorytmu:
+# Projekt z Teorii grafów
+#
+# część analityczna i analiza algorytmu:
 [TeoriaGrafów_PiotrPyrczak.pdf](https://github.com/ppiotrekp/ProjektGrafy/files/6575862/TeoriaGrafow_PiotrPyrczak.pdf)
 # 
 W zadaniu 7 wagi dobierałem losowo, również z tych samych wag korzystałem w części programistycznej.
