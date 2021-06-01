@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <string.h>
+#include <string>
 #include <fstream>
 #include <climits>
 #define V 11
@@ -68,42 +69,46 @@ bool bfs(int rGraph[V][V], int s, int t, int parent[]){ //funkcja typu bool zwra
     return 0;
 }
 
-int main(){
+int main() {
+    ifstream content ("C:\\Users\\48886\\CLionProjects\\podstawy_programowania_2-\\Ford-Fulkerson\\test.txt");
+
+    if (!content.fail())
+    {
+        int graph[V][V] ;
+        string line;
+        string delimiter = ",";
+        int pos = 0;
+        string token;
+        int i=0;
+        int j=0;
+        while (!content.eof())
+        {
+            content >> line;
+            if(j<V && i<V) {
+                graph[i][j] = atoi(line.c_str());
+                j++;
+            }
+
+            else if (i<V) {
+                j=0;
+                i++;
+                graph[i][j] = atoi(line.c_str());
+                j++;
+            }
+            else break;
+
+        }
+         for (int i=0; i<V; i++) {
+             for (int j=0; j<V; j++) {
+                 cout << graph[i][j] << " ";
+             }
+             cout << endl;
+         }
+         cout << "Maximum flow is: " << fordFulkerson(graph, 0, 10);
+    }
+    else cout << "File could not be opened" << endl;
+    content.close();
+
     return 0;
+
 }
-
-//    ifstream myfile ("JSON.txt");
-//    if (!myfile.fail())
-//    {
-//        //cout << "JSON: ";
-//        int graph[V][V];
-//        string line;
-//        string delimiter = ",";
-//        int pos = 0;
-//        string token;
-//       string table_of_elements[V][V];
-//        int i=0;
-//        int j=0;
-//        while (!myfile.eof())
-//        {
-//            getline(myfile, line);
-//            while ((pos = line.find(delimiter)) != string::npos) {
-//                token = line.substr(0,pos);
-//                graph[i][j] = stoi(token);
-//                line.erase(0, pos+delimiter.length());
-//                i++;
-//            }
-//            j++;
-//        }
-
-//         for (int i=0; i<V; i++) {
-//             for (int j=0; j<V; j++) {
-//                 graph[i][j] = stoi(table_of_elements[i][j]);
-//             }
-//         }
-
-
-
-//    int graph[V][V];
-//
-//
